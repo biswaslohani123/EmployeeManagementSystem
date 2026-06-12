@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import LoginLeftSide from "./LoginLeftSide";
 import { Link } from "react-router-dom";
-import { ArrowLeftIcon, Eye, EyeClosed } from "lucide-react";
+import { ArrowLeftIcon, Eye, EyeClosed, Loader2Icon } from "lucide-react";
 
 const LoginForm = ({ role, title, subtitle }) => {
   const [email, setEmail] = useState("");
@@ -54,6 +54,7 @@ const LoginForm = ({ role, title, subtitle }) => {
                 placeholder="Email"
                 onChange={(e) => setEmail(e.target.value)}
                 className=""
+                required
               />
 
               <label className="block text-sm mt-2 font-medium text-slate-700 mb-2">
@@ -65,20 +66,29 @@ const LoginForm = ({ role, title, subtitle }) => {
                 <input
                   type={showPassword ? "text" : "password"}
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}git 
+                  onChange={(e) => setPassword(e.target.value)}
+                  git
                   className="w-full border p-4 pr-10"
                   placeholder="Password"
+                  required
                 />
 
-                <span className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer" onClick={() => setShowPassword(!showPassword)}>
-                  {showPassword ? <Eye/> : <EyeClosed/>}
+                <span
+                  className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? <Eye /> : <EyeClosed />}
                 </span>
-
               </div>
             </div>
 
-            <button className="bg-indigo-600 w-full p-3 rounded-2xl text-white cursor-pointer hover:bg-indigo-500 transition-all">
-              Sign In
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full py-3 bg-indigo-700 rounded-2xl text-white cursor-pointer flex items-center justify-center gap-2"
+            >
+              {loading && <Loader2Icon className="animate-spin h-4 w-4" />}
+              {loading ? "Signing in..." : "Sign in"}
             </button>
           </form>
         </div>
