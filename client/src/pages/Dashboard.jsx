@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { dummyEmployeeDashboardData } from '../assets/assets';
+import { dummyAdminDashboardData, dummyEmployeeDashboardData } from '../assets/assets';
 import Loading from '../components/Loading';
 import EmployeeDashboard from '../components/EmployeeDashboard';
+import AdminDashboard from '../components/AdminDashboard';
 
 const Dashboard = () => {
 
@@ -9,7 +10,7 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setData(dummyEmployeeDashboardData)
+    setData(dummyAdminDashboardData)
     setTimeout(() => {
 
       setLoading(false)
@@ -22,7 +23,7 @@ const Dashboard = () => {
 
   if (data.role === 'ADMIN') {
 
-    return <div>admin dashboard</div>
+    return <AdminDashboard data={data}/>
     
   }else{
     
