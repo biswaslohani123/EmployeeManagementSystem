@@ -25,7 +25,7 @@ const SideBar = () => {
 
     },[pathname]);
 
-    const role = "" || "EMPLOYEE";
+    const role = "ADMIN" || "EMPLOYEE";
 
     const NavItems = [
         {name: "Dashboard" , href: "/dashboard", icon:LayoutGrid},
