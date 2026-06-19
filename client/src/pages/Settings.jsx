@@ -3,6 +3,7 @@ import { dummyProfileData } from '../assets/assets';
 import Loading from '../components/Loading';
 import { LockIcon } from 'lucide-react';
 import ProfileForm from '../components/settings/ProfileForm';
+import ChangePasswordModal from '../components/settings/ChangePasswordModal';
 
 const Settings = () => {
 
@@ -58,6 +59,8 @@ const Settings = () => {
           </button>
        
       </div>
+
+      <ChangePasswordModal open={showPasswordModal} onClose={() => setShowPasswordModal(false)}/>
 
     </div>
   )
