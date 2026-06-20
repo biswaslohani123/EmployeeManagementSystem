@@ -1,10 +1,11 @@
 import bcrypt from 'bcrypt'
 import User from '../models/User.js'
+
 import jwt from 'jsonwebtoken'
 
 //  login for employee and admin
 
-import User from "../models/User";
+
 
 const login = async (req, res) => {
     try {
