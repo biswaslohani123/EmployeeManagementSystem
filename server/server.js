@@ -7,6 +7,7 @@ import authRouter from './routes/authRoutes.js'
 import employeeRouter from './routes/employeeRouter.js'
 import profileRouter from './routes/profileRoute.js'
 import attendanceRouter from './routes/attendanceRoute.js'
+import leaveRouter from './routes/leaveRoute.js'
 
 const app = express()
 const PORT = process.env.PORT || 3000
@@ -24,6 +25,7 @@ app.use('/api/auth', authRouter)
 app.use('/api/employees', employeeRouter);
 app.use('/api/profile', profileRouter)
 app.use('/api/attendance', attendanceRouter)
+app.use('/api/leave',leaveRouter)
 
 
 await connectDB()
