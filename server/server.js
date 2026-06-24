@@ -10,6 +10,8 @@ import attendanceRouter from './routes/attendanceRoute.js'
 import leaveRouter from './routes/leaveRoute.js'
 import paySlipRouter from './routes/payslipRoute.js'
 import dashboardRouter from './routes/dashboardRoute.js'
+import { serve } from "inngest/express";
+import { inngest, functions } from "./inngest/index.js"
 
 const app = express()
 const PORT = process.env.PORT || 3000
@@ -30,6 +32,9 @@ app.use('/api/attendance', attendanceRouter)
 app.use('/api/leave',leaveRouter)
 app.use("/api/payslips", paySlipRouter)
 app.use('/api/dashboard', dashboardRouter)
+
+// Set up the "/api/inngest" (recommended) routes with the serve handler
+app.use("/api/inngest", serve({ client: inngest, functions }));
 
 
 await connectDB()
